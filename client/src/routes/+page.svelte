@@ -5,6 +5,7 @@
     import ChoosePaymentMethod from './pay/ChoosePaymentMethod.svelte'
     import PayAmount from "./pay/PayAmount.svelte";
     import CreateProduct from "./CreateProduct.svelte";
+    import Bluetooth from "./Bluetooth.svelte";
 
     let products = []
 
@@ -89,7 +90,7 @@
     let editMode = false;
 
     // State & screen
-    let screen = 0
+    let screen = 4
     let setScreen = (scr) => {
         screen = scr
         history.pushState({ screen: scr }, "Hugo POS " + scr);
@@ -142,6 +143,8 @@
         <PayAmount bind:setScreen={setScreen} bind:payment={payment} bind:products={products}></PayAmount>
     {:else if screen == 3}
         <CreateProduct bind:setScreen={setScreen}></CreateProduct>
+    {:else if screen == 4}
+        <Bluetooth></Bluetooth>
     {/if}
     
 </div>

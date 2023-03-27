@@ -6,8 +6,7 @@ let header = async (printer) => {
         printer.setTextQuadArea();
 
         printer.bold(true)
-        printer.println("HUGOS KIOSK
-        ")
+        printer.println("HUGOS KIOSK")
         printer.setTextNormal()
         printer.bold(false);
 
@@ -139,7 +138,7 @@ import {printer as ThermalPrinter, types as PrinterTypes} from "node-thermal-pri
 export let print = async (items, pay) => {
     let printer = new ThermalPrinter({
         type: PrinterTypes.EPSON,                                   // Printer type: 'star' or 'epson'
-        interface: '/dev/usb/lp0',                                  // Printer interface
+        interface: 'tcp://192.168.6.5',                                  // Printer interface
         characterSet: "PC865_NORDIC",                               // Printer character set, may be string or Buffer
         removeSpecialCharacters: false,                             // Removes special characters - default: false
         replaceSpecialCharacters: true,                             // Replaces special characters listed in config files - default: true
